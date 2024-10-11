@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Commissioner';
+}
+body{
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center top;
+    filter: blur(4px);
+    z-index: -1;
+    
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 9%;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+header ul{
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+.logo{
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.logo:hover{
+    transform: scale(1.1);
+}
+nav a{
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color: #b2b0aa;
+    border-bottom: 3px solid #b2b0aa;
+}
+section {
+    scroll-margin-top: 80px; /* ชดเชยความสูงของ header สำหรับการ scroll */
+}
+.home{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.light{
+    background-image:
+    conic-gradient(
+        from var(--rotate) at 29% 10%,
+        #0B1012 40%,
+        #F4f7fc55,
+        #0b1012 60%
+    );
+    font-size:110px;
+    font-weight:bolder;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color:transparent;
+    animation: rotateLight
+                3s ease-in-out infinite
+                alternate;
+}
+@keyframes rotateLight{
+    from{
+        --rotate:0.2turn
+    }to{
+        --rotate:-0.2turn
+    }
+}
+@media(max-width:995px){
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid rgb(40, 54, 24);
+        border-bottom: 3px solid rgb(40, 54, 24);
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+    }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid rgb(40, 54, 24);
+    }
+}
